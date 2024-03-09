@@ -1,0 +1,21 @@
+html{
+    box-sizing: border-box;
+}
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+button
+{
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+ul{
+    list-style: none;
+}
