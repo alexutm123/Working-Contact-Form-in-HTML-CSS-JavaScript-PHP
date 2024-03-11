@@ -14,11 +14,12 @@
 <body>
   <div class="wrapper">
     <header>Send us a Message</header>
-    <form action="#" data-netlify="true">
+    <form name="contact" action="#" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact"> <!-- Скрытое поле с именем формы -->
       <div class="dbl-field">
         <div class="field">
           <input type="text" name="name" id="" placeholder="Enter your name">
-        <i class="fas fa-user"></i>
+          <i class="fas fa-user"></i>
         </div>
         <div class="field">
           <input type="text" name="email" placeholder="Enter your email">
@@ -28,7 +29,7 @@
       <div class="dbl-field">
         <div class="field">
           <input type="text" name="phone" id="" placeholder="Enter your phone">
-        <i class="fas fa-phone-alt"></i>
+          <i class="fas fa-phone-alt"></i>
         </div>
         <div class="field">
           <input type="text" name="website" placeholder="Enter your website">
@@ -40,8 +41,8 @@
         <i class="material-icons">message</i>
       </div>
       <div class="button-area">
-       <button type="submit">Send Message</button>
-       <span>Sending your message...</span>
+        <button type="submit">Send Message</button>
+        <span>Sending your message...</span>
       </div>
     </form>
   </div>
