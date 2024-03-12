@@ -1,26 +1,29 @@
+//Contact Form in PHP
 <?php
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$website = $_POST['website'];
-$message = $_POST['message'];
 
-if (!empty($email) && !empty($message)) { // если поля email и сообщение не пустые
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // если email валидный
-        $receiver = "pilich.sasha@gmail.com        "; // email адрес получателя
-        $subject = "From: $name <$email>"; // тема письма
-        $body = "Name: $name\nEmail: $email\nPhone: $phone\nWebsite: $website\nMessage: $message\n\nRegards,\n$name"; // текст письма
-        $sender = "From: $email"; // отправитель
 
-        if (mail($receiver, $subject, $body, $sender)) { // отправка письма
-            echo "Your message has been sent";
-        } else {
-            echo "Sorry, failed to send your message!";
-        }
-    } else {
-        echo "Enter a valid email address!";
+  $name = htmlspecialchars($_POST['name']);
+  $email = htmlspecialchars($_POST['email']);
+  $email2 = htmlspecialchars($_POST['email2']);
+  $phone = htmlspecialchars($_POST['phone']);
+  $website = htmlspecialchars($_POST['website']);
+  $message = htmlspecialchars($_POST['message']);
+
+  if(!empty($email) && !empty($message)){
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+      $receiver = $email2; //enter that email address where you want to receive all messages
+      $subject = "From: $name <$email>";
+      $body = "Name: $name\nEmail: $email\nPhone: $phone\nWebsite: $website\n\nMessage:\n$message\n\nRegards,\n$name";
+      $sender = "From: $email";
+      if(mail($receiver, $subject, $body, $sender)){
+         echo "Your message has been sent";
+      }else{
+         echo "Sorry, failed to send your message!";
+      }
+    }else{
+      echo "Enter a valid email address!";
     }
-} else { 
-    echo "Email and message fields are required!";
-}
+  }else{
+    echo "Email and message field is required!";
+  }
 ?>
